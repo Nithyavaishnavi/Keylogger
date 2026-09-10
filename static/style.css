@@ -1,34 +1,46 @@
+```css
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f4f7fb;
+    background:
+        radial-gradient(circle at 85% 10%, rgba(79, 114, 255, 0.08), transparent 25%),
+        radial-gradient(circle at 10% 90%, rgba(0, 200, 170, 0.06), transparent 25%),
+        #f4f7fb;
     color: #172033;
     min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 
 /* =========================
-   Main Layout
+   MAIN LAYOUT
 ========================= */
 
 .app-layout {
     display: flex;
     min-height: 100vh;
+    width: 100%;
 }
 
 
 /* =========================
-   Sidebar
+   SIDEBAR
 ========================= */
 
 .sidebar {
     width: 245px;
-    background: #101827;
+    background: linear-gradient(180deg, #101827, #17233b);
     color: white;
     padding: 28px 18px;
     display: flex;
@@ -37,6 +49,7 @@ body {
     left: 0;
     top: 0;
     bottom: 0;
+    z-index: 1000;
 }
 
 .brand {
@@ -49,13 +62,15 @@ body {
 .brand-logo {
     width: 42px;
     height: 42px;
+    min-width: 42px;
     border-radius: 11px;
-    background: #4f72ff;
+    background: linear-gradient(135deg, #4f72ff, #7c5cff);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 20px;
     font-weight: bold;
+    box-shadow: 0 6px 18px rgba(79, 114, 255, 0.35);
 }
 
 .brand h2 {
@@ -66,7 +81,6 @@ body {
     color: #8d99ad;
     font-size: 11px;
 }
-
 
 nav {
     display: flex;
@@ -83,23 +97,25 @@ nav a {
     align-items: center;
     gap: 12px;
     font-size: 14px;
+    transition: 0.2s ease;
 }
 
 nav a:hover {
-    background: #1a2538;
+    background: rgba(79, 114, 255, 0.18);
     color: white;
+    transform: translateX(3px);
 }
 
 nav a.active {
-    background: #202e47;
+    background: linear-gradient(90deg, #4f72ff, #685cff);
     color: white;
+    box-shadow: 0 5px 15px rgba(79, 114, 255, 0.25);
 }
 
 nav a span {
     width: 20px;
     text-align: center;
 }
-
 
 .sidebar-note {
     margin-top: auto;
@@ -120,7 +136,7 @@ nav a span {
 
 
 /* =========================
-   Main Content
+   MAIN CONTENT
 ========================= */
 
 .main-content {
@@ -132,7 +148,7 @@ nav a span {
 
 
 /* =========================
-   Topbar
+   TOPBAR
 ========================= */
 
 .topbar {
@@ -162,6 +178,7 @@ nav a span {
     border-radius: 20px;
     font-size: 12px;
     color: #526075;
+    white-space: nowrap;
 }
 
 .pulse {
@@ -175,18 +192,20 @@ nav a span {
 
 
 /* =========================
-   Intro
+   INTRO
 ========================= */
 
 .intro {
     background: white;
     border: 1px solid #e2e7ee;
+    border-left: 4px solid #4f72ff;
     border-radius: 15px;
     padding: 24px 27px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 18px;
+    box-shadow: 0 5px 20px rgba(31, 45, 70, 0.06);
 }
 
 .intro h2 {
@@ -197,6 +216,7 @@ nav a span {
 .intro p {
     color: #748096;
     font-size: 13px;
+    line-height: 1.5;
 }
 
 .lab-id {
@@ -207,15 +227,16 @@ nav a span {
     border-radius: 7px;
     font-size: 11px;
     font-weight: bold;
+    white-space: nowrap;
 }
 
 
 /* =========================
-   Monitor Panel
+   MONITOR PANEL
 ========================= */
 
 .monitor-panel {
-    background: #182338;
+    background: linear-gradient(135deg, #182338, #26395c);
     color: white;
     border-radius: 15px;
     padding: 22px 25px;
@@ -223,6 +244,7 @@ nav a span {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 18px;
+    box-shadow: 0 8px 22px rgba(24, 35, 56, 0.16);
 }
 
 .monitor-info {
@@ -234,6 +256,7 @@ nav a span {
 .monitor-icon {
     width: 45px;
     height: 45px;
+    min-width: 45px;
     border-radius: 50%;
     background: #273651;
     display: flex;
@@ -265,7 +288,6 @@ nav a span {
     color: #55dc8a;
 }
 
-
 .controls {
     display: flex;
     gap: 9px;
@@ -278,10 +300,11 @@ nav a span {
     font-weight: bold;
     font-size: 12px;
     cursor: pointer;
+    transition: 0.2s ease;
 }
 
 .btn.start {
-    background: #4f72ff;
+    background: linear-gradient(135deg, #4f72ff, #685cff);
     color: white;
 }
 
@@ -296,13 +319,13 @@ nav a span {
 }
 
 .btn:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
     opacity: 0.9;
 }
 
 
 /* =========================
-   Dashboard Grid
+   DASHBOARD GRID
 ========================= */
 
 .dashboard-grid {
@@ -314,7 +337,7 @@ nav a span {
 
 
 /* =========================
-   Input Panel
+   PANELS
 ========================= */
 
 .input-panel,
@@ -324,6 +347,7 @@ nav a span {
     border: 1px solid #e1e6ed;
     border-radius: 15px;
     padding: 24px;
+    box-shadow: 0 5px 20px rgba(31, 45, 70, 0.06);
 }
 
 .section-heading {
@@ -352,6 +376,11 @@ nav a span {
     margin: 10px 0 16px;
 }
 
+
+/* =========================
+   TEXTAREA
+========================= */
+
 textarea {
     width: 100%;
     min-height: 170px;
@@ -364,6 +393,7 @@ textarea {
     color: #202b3d;
     background: #f9fafc;
     outline: none;
+    display: block;
 }
 
 textarea:focus {
@@ -378,22 +408,24 @@ textarea:focus {
     color: #8994a6;
     font-size: 10px;
     margin-top: 10px;
+    gap: 10px;
 }
 
 
 /* =========================
-   Statistics
+   STATISTICS
 ========================= */
 
 .stats-panel {
-    background: #f8faff;
+    background: linear-gradient(145deg, #f8faff, #eef5ff);
+    border-top: 4px solid #4f72ff;
 }
 
 .stat-number {
     font-size: 47px;
     font-weight: bold;
     margin-top: 20px;
-    color: #26344e;
+    color: #4f72ff;
 }
 
 .stats-panel > p {
@@ -412,6 +444,7 @@ textarea:focus {
     justify-content: space-between;
     padding: 10px 0;
     font-size: 11px;
+    gap: 10px;
 }
 
 .stat-item span {
@@ -424,11 +457,12 @@ textarea:focus {
 
 
 /* =========================
-   Activity
+   ACTIVITY
 ========================= */
 
 .activity-panel {
     margin-bottom: 18px;
+    border-top: 4px solid #685cff;
 }
 
 .activity-header {
@@ -473,10 +507,12 @@ textarea:focus {
     margin-bottom: 7px;
     font-family: monospace;
     font-size: 12px;
+    word-break: break-word;
 }
 
 .event::before {
     content: "KEY";
+    flex-shrink: 0;
     font-family: Arial, sans-serif;
     font-size: 8px;
     font-weight: bold;
@@ -515,7 +551,7 @@ textarea:focus {
 
 
 /* =========================
-   Footer
+   FOOTER
 ========================= */
 
 footer {
@@ -524,12 +560,35 @@ footer {
     color: #8994a6;
     font-size: 10px;
     padding: 5px;
+    gap: 10px;
 }
 
 
-/* =========================
-   Mobile
-========================= */
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .sidebar {
+        width: 210px;
+    }
+
+    .main-content {
+        margin-left: 210px;
+        width: calc(100% - 210px);
+        padding: 25px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =====================================================
+   SMALL TABLET
+===================================================== */
 
 @media (max-width: 850px) {
 
@@ -538,19 +597,26 @@ footer {
         padding: 20px 10px;
     }
 
-    .brand div:not(.brand-logo),
-    nav a:not(.active) {
-        display: none;
-    }
-
     .brand {
         justify-content: center;
-        padding-bottom: 30px;
+        padding: 5px 0 30px;
+    }
+
+    .brand div:not(.brand-logo) {
+        display: none;
     }
 
     nav a {
         justify-content: center;
         padding: 13px;
+    }
+
+    nav a:not(.active) {
+        display: flex;
+    }
+
+    nav a span {
+        width: auto;
     }
 
     .sidebar-note {
@@ -568,8 +634,8 @@ footer {
     }
 
     .monitor-panel {
-        align-items: flex-start;
         flex-direction: column;
+        align-items: flex-start;
         gap: 18px;
     }
 
@@ -583,41 +649,342 @@ footer {
 }
 
 
+/* =====================================================
+   MOBILE PHONE
+===================================================== */
+
 @media (max-width: 600px) {
 
-    .main-content {
-        padding: 15px;
+    body {
+        width: 100%;
+        overflow-x: hidden;
     }
 
+    .app-layout {
+        display: block;
+        width: 100%;
+    }
+
+    /* ---------- Top Sidebar ---------- */
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        padding: 12px 10px;
+        display: block;
+    }
+
+    .brand {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 2px 6px 12px;
+    }
+
+    .brand div:not(.brand-logo) {
+        display: block;
+    }
+
+    .brand-logo {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        font-size: 17px;
+    }
+
+    .brand h2 {
+        font-size: 16px;
+    }
+
+    .brand span {
+        font-size: 9px;
+    }
+
+    /* ---------- Mobile Navigation ---------- */
+
+    nav {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    nav a {
+        display: flex !important;
+        justify-content: center;
+        padding: 8px 10px;
+        font-size: 11px;
+        gap: 5px;
+        flex: 0 0 auto;
+    }
+
+    nav a span {
+        width: auto;
+    }
+
+    .sidebar-note {
+        display: none;
+    }
+
+    /* ---------- Main ---------- */
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        max-width: none;
+        padding: 14px;
+    }
+
+    /* ---------- Topbar ---------- */
+
     .topbar {
-        align-items: flex-start;
-        gap: 12px;
+        width: 100%;
+        display: flex;
         flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 18px;
     }
 
     .topbar h1 {
         font-size: 22px;
+        line-height: 1.2;
     }
 
     .connection {
-        align-self: flex-start;
+        font-size: 11px;
+        padding: 8px 12px;
     }
+
+    /* ---------- Intro ---------- */
 
     .intro {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
         align-items: flex-start;
-        gap: 15px;
+        padding: 18px;
+        gap: 12px;
+        margin-bottom: 14px;
     }
 
-    .controls {
+    .intro h2 {
+        font-size: 17px;
+    }
+
+    .intro p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .lab-id {
+        font-size: 10px;
+    }
+
+    /* ---------- Monitor ---------- */
+
+    .monitor-panel {
+        width: 100%;
+        padding: 18px;
+        display: flex;
         flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        border-radius: 13px;
+    }
+
+    .monitor-info {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .monitor-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        font-size: 18px;
+    }
+
+    .status {
+        font-size: 14px;
+    }
+
+    /* ---------- Buttons ---------- */
+
+    .controls {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
     }
 
     .btn {
         width: 100%;
+        flex: none;
+        padding: 11px;
     }
 
+    /* ---------- Dashboard ---------- */
+
+    .dashboard-grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-bottom: 14px;
+    }
+
+    .input-panel,
+    .stats-panel,
+    .activity-panel {
+        width: 100%;
+        min-width: 0;
+        padding: 18px;
+        border-radius: 13px;
+    }
+
+    /* ---------- Headings ---------- */
+
+    .section-heading {
+        width: 100%;
+    }
+
+    .section-heading h2,
+    .activity-header h2 {
+        font-size: 16px;
+    }
+
+    .description {
+        font-size: 11px;
+        line-height: 1.6;
+    }
+
+    /* ---------- Textarea ---------- */
+
+    textarea {
+        width: 100%;
+        min-width: 0;
+        min-height: 160px;
+        font-size: 14px;
+        padding: 13px;
+    }
+
+    .input-footer {
+        font-size: 9px;
+        flex-wrap: wrap;
+        line-height: 1.4;
+    }
+
+    /* ---------- Statistics ---------- */
+
+    .stat-number {
+        font-size: 40px;
+        margin-top: 15px;
+    }
+
+    .stat-line {
+        margin: 17px 0;
+    }
+
+    /* ---------- Activity ---------- */
+
+    .activity-header {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 7px;
+    }
+
+    .events {
+        width: 100%;
+        min-height: 160px;
+        max-height: 230px;
+        padding: 9px;
+    }
+
+    .event {
+        width: 100%;
+        font-size: 10px;
+        padding: 9px;
+        gap: 7px;
+    }
+
+    /* ---------- Footer ---------- */
+
     footer {
+        width: 100%;
         flex-direction: column;
         gap: 6px;
+        padding: 8px 3px;
     }
 }
+
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .sidebar {
+        padding: 10px 7px;
+    }
+
+    .brand {
+        padding-bottom: 10px;
+    }
+
+    .brand-logo {
+        width: 35px;
+        height: 35px;
+        min-width: 35px;
+        font-size: 15px;
+    }
+
+    .brand h2 {
+        font-size: 15px;
+    }
+
+    nav {
+        gap: 3px;
+    }
+
+    nav a {
+        padding: 7px 8px;
+        font-size: 10px;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    .topbar h1 {
+        font-size: 20px;
+    }
+
+    .intro,
+    .input-panel,
+    .stats-panel,
+    .activity-panel {
+        padding: 15px;
+    }
+
+    textarea {
+        min-height: 140px;
+    }
+
+    .stat-number {
+        font-size: 36px;
+    }
+
+    .event {
+        font-size: 9px;
+    }
+}
+```
