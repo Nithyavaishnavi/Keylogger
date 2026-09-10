@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KeyTrace Security Lab</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logo">K</div>
+
+            <div>
+                <h2>KeyTrace</h2>
+                <span>Security Lab</span>
+            </div>
+        </div>
+
+        <nav>
+            <a href="#" class="active">
+                <span>▣</span>
+                Dashboard
+            </a>
+
+            <a href="#">
+                <span>◉</span>
+                Monitor
+            </a>
+
+            <a href="#">
+                <span>⌁</span>
+                Activity
+            </a>
+
+            <a href="#">
+                <span>⚙</span>
+                Settings
+            </a>
+        </nav>
+
+        <div class="sidebar-note">
+            <span class="shield">◆</span>
+
+            <p>
+                Educational environment.
+                Monitoring is restricted
+                to the demo input.
+            </p>
+        </div>
+
+    </aside>
+
+
+    <!-- Main Area -->
+    <main class="main-content">
+
+        <!-- Top Bar -->
+        <header class="topbar">
+
+            <div>
+                <span class="page-label">SECURITY LAB / DEMO</span>
+                <h1>Keyboard Event Monitor</h1>
+            </div>
+
+            <div class="connection">
+                <span class="pulse"></span>
+                Local Session
+            </div>
+
+        </header>
+
+
+        <!-- Intro -->
+        <section class="intro">
+
+            <div>
+                <h2>Controlled Keyboard Analysis</h2>
+
+                <p>
+                    Observe keyboard events inside the designated
+                    demonstration area.
+                </p>
+            </div>
+
+            <div class="lab-id">
+                LAB-01
+            </div>
+
+        </section>
+
+
+        <!-- Monitoring Control -->
+        <section class="monitor-panel">
+
+            <div class="monitor-info">
+
+                <div class="monitor-icon">
+                    ◉
+                </div>
+
+                <div>
+                    <span class="small-title">
+                        MONITORING STATUS
+                    </span>
+
+                    <div
+                        id="status"
+                        class="status off"
+                    >
+                        OFFLINE
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="controls">
+
+                <button
+                    id="startButton"
+                    class="btn start"
+                >
+                    <span>▶</span>
+                    Start Session
+                </button>
+
+                <button
+                    id="stopButton"
+                    class="btn stop"
+                >
+                    <span>■</span>
+                    Stop
+                </button>
+
+                <button
+                    id="clearButton"
+                    class="btn reset"
+                >
+                    Reset Activity
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Dashboard Grid -->
+        <section class="dashboard-grid">
+
+
+            <!-- Input Section -->
+            <div class="input-panel">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="section-tag">
+                            INPUT SANDBOX
+                        </span>
+
+                        <h2>Test Keyboard Events</h2>
+                    </div>
+
+                    <span class="lock">🔒</span>
+
+                </div>
+
+                <p class="description">
+                    Start a monitoring session and type inside
+                    this controlled area to generate keyboard events.
+                </p>
+
+                <textarea
+                    id="demoInput"
+                    placeholder="Type your test message here..."
+                    rows="8"
+                ></textarea>
+
+                <div class="input-footer">
+
+                    <span>
+                        ● Protected Demo Area
+                    </span>
+
+                    <span>
+                        Keyboard events only
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Statistics -->
+            <div class="stats-panel">
+
+                <span class="section-tag">
+                    SESSION DATA
+                </span>
+
+                <div class="stat-number" id="counter">
+                    0
+                </div>
+
+                <p>Total keyboard events</p>
+
+                <div class="stat-line"></div>
+
+                <div class="stat-item">
+                    <span>Capture scope</span>
+                    <strong>Demo Input</strong>
+                </div>
+
+                <div class="stat-item">
+                    <span>Storage</span>
+                    <strong>Local</strong>
+                </div>
+
+                <div class="stat-item">
+                    <span>Session</span>
+                    <strong>Temporary</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Activity Feed -->
+        <section class="activity-panel">
+
+            <div class="activity-header">
+
+                <div>
+                    <span class="section-tag">
+                        LIVE FEED
+                    </span>
+
+                    <h2>Keyboard Activity</h2>
+                </div>
+
+                <div class="feed-status">
+                    <span></span>
+                    Listening
+                </div>
+
+            </div>
+
+
+            <div
+                id="events"
+                class="events"
+            >
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                       ⌨
+                    </div>
+
+                    <p>No activity recorded</p>
+
+                    <span>
+                        Start monitoring and type in the sandbox.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer>
+
+            <span>KeyTrace Security Lab</span>
+
+            <span>
+                Educational Demonstration • Local Environment
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script
+    src="{{ url_for('static', filename='script.js') }}"
+></script>
+
+</body>
+</html>
